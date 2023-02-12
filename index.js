@@ -1,20 +1,13 @@
-const express = require('express')
-const downloadVideo = require('./download')
-const fs = require('fs')
+const express = require('express');
+const cors = require('cors');
+const router = require('./routes');
 
-const app = express()
+const app = express();
+const port = process.env.PORT || 8080;
+app.use(cors());
 
-// ROTAS
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/html/index.html')
-})
-app.get('/download/:id/:format', async (req, res) => {
-  const link = 'https://www.youtube.com/watch?v=' + req.params.id
-  const format = req.params.format
-  await downloadVideo(link, format)
-  .then(() => {
-    return res.download('video.mp4')
-  })
-})
+app.use(router);
 
-app.listen(6969, e => { console.log('server running at http://localhost:6969') })
+app.listen(port, () => {
+  console.log("Server runing in port: " + port);
+});
