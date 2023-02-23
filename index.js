@@ -1,13 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-const router = require('./routes');
+const express = require('express')
+const cors = require('cors')
+const router = require('./lib/routes')
 
-const app = express();
-const port = process.env.PORT || 8080;
-app.use(cors());
+const app = express()
+const port = 6969
 
-app.use(router);
+app.use(cors())
+app.use(router)
 
-app.listen(port, () => {
-  console.log("Server runing in port: " + port);
-});
+console.log('Teste: http://localhost:6969/download/ktqZi5d-msk/video')
+app.listen(port, () => console.log('Server runing in port http://localhost:' + port))

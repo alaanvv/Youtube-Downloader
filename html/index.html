@@ -20,7 +20,8 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    body,
+    html {
       height: 100%;
     }
 
@@ -42,7 +43,7 @@
     button {
       cursor: pointer;
       border-radius: 3px;
-      
+
       background-color: var(--main-color);
       padding: 5px;
       color: white;
@@ -61,12 +62,13 @@
 
       width: min(50%, 450px);
       padding: 25px 15px;
-      
+
       background-color: #ccc;
       box-shadow: 1px 1px 5px black;
     }
 
-    .video-area, .download-area {
+    .video-area,
+    .download-area {
       width: 95%;
       display: flex;
       flex-direction: column;
@@ -76,7 +78,7 @@
     .display {
       aspect-ratio: 1.77757352941;
       width: 100%;
-      
+
       background-color: var(--main-color);
       box-shadow: 0px 0px 5px black;
     }
@@ -93,6 +95,7 @@
       padding-left: 3px;
       background-color: #bbb;
     }
+
     input:focus {
       outline: none;
     }
@@ -117,17 +120,19 @@
   <div class="main">
     <div class="video-area">
       <div class="display">
-        <iframe src="" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="" title="" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
       </div>
       <p class="title"> Escolha um vídeo </p>
       <div class="form">
-        <input class="urlInput" type="text" placeholder="URL" value="https://www.youtube.com/watch?v=UkwLcuzJRDQ">
+        <input class="urlInput" type="text" placeholder="URL" value="https://www.youtube.com/watch?v=ktqZi5d-msk">
         <button onclick="sendLink()" class="sendlink"> ENVIAR </button>
       </div>
     </div>
-    
+
     <hr>
-    
+
     <div class="download-area">
       <form class="options">
         <label> <input type="radio" name="format" value="mp4" id="video"> VIDEO </label>
@@ -136,8 +141,9 @@
       <button onclick="download()" class="downloadbutton"> DOWNLOAD </button>
     </div>
   </div>
-  
-  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
   <script>
     const urlInput = document.querySelector('.urlInput')
     const embed = document.querySelector('iframe')
@@ -161,7 +167,7 @@
 
     function download() {
       if (!link) return alert('Insert a URL')
-      
+
       let data = new FormData(document.querySelector('.options'))
       let format = data.get('format')
 
